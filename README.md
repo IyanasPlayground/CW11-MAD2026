@@ -1,17 +1,18 @@
-# signup_app
+Iyana Halliburton
+002765290
+10/26/2026
 
-A new Flutter project.
 
-## Getting Started
+Github URL: https://github.com/IyanasPlayground/Forms-MAD2026
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Track-Based Critical Thinking
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Answer the questions for your track in your README. Use observations from your own implementation and tests.
+Undergraduate — answer any two
+Trace the local tip feature from button tap to displayed text. Which widget/state changes during the simulated loading state, and how does the user recover from the local error case?
+Why must the app keep form validation local even when it can ask an AI for a tip? Give one example of a bad decision if AI were allowed to approve signup.
+The app should keep form validation local because the variable and form question is within the app and not stored anywhere externally. The validation will ensure the helpful messages will display and limit the input allowed for each form prompt. 
+Which fixed local category selects the tip, and what form information does the feature deliberately ignore? Why?
+The passwordhelper selects the tip due to invalid or incorrect input of the categories. The form 
+Which local test case changed what you implemented? Describe what you observed.
