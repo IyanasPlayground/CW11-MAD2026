@@ -107,8 +107,8 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold( // 👨 Parent
       appBar: AppBar(
-        title: const Text('Sign up for our Dorm Halloween Party!'),
-        backgroundColor: Colors.purple,
+        title: const Text('Sign up for our Halloween Mansion!'),
+        backgroundColor: Colors.pink,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -181,6 +181,28 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               const SizedBox(height: 24),
 
+              
+            // 🎛️ State field — true = dots, false = letters
+          TextFormField(
+            controller: _passwordController,
+            obscureText: _obscurePassword,
+            decoration: InputDecoration(
+              labelText: 'Password',
+              prefixIcon: const Icon(Icons.lock),
+              border: const OutlineInputBorder(),
+              suffixIcon: IconButton(
+                icon: Icon(_obscurePassword
+                    ? Icons.visibility
+                    : Icons.visibility_off),
+                onPressed: () {
+                  setState(() {
+                    _obscurePassword = !_obscurePassword;
+                  });
+                },
+              ),
+            ),
+          ),
+
               TextFormField(
                 controller: _dateController,
                 readOnly: true,  // taps open the picker, not the keyboard
@@ -208,27 +230,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 },
               ),
 
-            // 🎛️ State field — true = dots, false = letters
-          TextFormField(
-            controller: _passwordController,
-            obscureText: _obscurePassword,
-            decoration: InputDecoration(
-              labelText: 'Password',
-              prefixIcon: const Icon(Icons.lock),
-              border: const OutlineInputBorder(),
-              suffixIcon: IconButton(
-                icon: Icon(_obscurePassword
-                    ? Icons.visibility
-                    : Icons.visibility_off),
-                onPressed: () {
-                  setState(() {
-                    _obscurePassword = !_obscurePassword;
-                  });
-                },
-              ),
-            ),
-          
-          ),
 
 
               // What user will bring
