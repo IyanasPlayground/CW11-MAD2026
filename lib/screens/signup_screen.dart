@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'success_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,42 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _submitting = false;
 
   //moved higher in code
-
-
-
-    
-    // State field
-    Future<void> _submit() async {
-      if (!_formKey.currentState!.validate()) return;
-
-      setState(() => _submitting = true);  // potion starts brewing
-
-      await Future.delayed(const Duration(seconds: 2));
-
-      if (!mounted) return;  // user may have left the screen
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (_) => SuccessScreen(
-              userName: _nameController.text.trim()),
-        ),
-      );
-    }
-
-    // The Sign Up button:
-    ElevatedButton(
-      onPressed: _submitting ? null : _submit,  // null = disabled
-      child: _submitting
-          ? const SizedBox(
-              width: 20, height: 20,
-              child: CircularProgressIndicator(
-                  strokeWidth: 2, color: Colors.white))
-          : const Text('Join the Mansion',
-                style: TextStyle(fontSize: 18)),
-    )
-  ),
-}
+  
 
   final List<String> _sampleTips = [
     "Ensure your password has 12 or more characters",
@@ -117,6 +83,24 @@ class _SignupScreenState extends State<SignupScreen> {
       _tipText = 'Failed to load tip. Please try again!';
     });
   }
+    // State field
+  Future<void> _submit() async {
+      if (!_formKey.currentState!.validate()) return;
+
+      setState(() => _submitting = true);  // potion starts brewing
+
+      await Future.delayed(const Duration(seconds: 2));
+
+      if (!mounted) return;  // user may have left the screen
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => SuccessScreen(
+              userName: _nameController.text.trim()),
+        ),
+      );
+    }
 
 
   @override
@@ -321,6 +305,20 @@ class _SignupScreenState extends State<SignupScreen> {
               const SizedBox(height: 24),
 
 
+            
+              // The Sign Up button:
+              ElevatedButton(
+                onPressed: _submitting ? null : _submit,  // null = disabled
+                child: _submitting
+                    ? const SizedBox(
+                        width: 20, height: 20,
+                        child: CircularProgressIndicator(
+                            strokeWidth: 2, color: Colors.white))
+                    : const Text('Join the Mansion',
+                          style: TextStyle(fontSize: 18)),
+              )
+
+
               // 🚀 Sign Up Button
               //assuming it replaces og button
              //ElevatedButton(
@@ -342,7 +340,7 @@ class _SignupScreenState extends State<SignupScreen> {
               //    'Sign Up',
  //               //  style: TextStyle(fontSize: 18),
    //             ),
-            ),
+          //  ),
            ],
           ),
         ),
